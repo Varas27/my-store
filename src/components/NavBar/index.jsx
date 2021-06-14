@@ -1,14 +1,20 @@
 import './styles.css';
-
+import { FiMenu } from 'react-icons/fi'
+import { CartWidgetComponent } from './../CartWidget/index';
 export const NavBarComponent = () => {
     return (
-        <nav style={{backgroundColor:"red"}} className="navbar navbar-expand-lg">
+        <nav className="navbar navbar-expand-lg">
             <a className="navbar-brand" href="#">NeBeA</a>
-            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span className="navbar-toggler-icon"></span>
+
+            <CartWidgetComponent />
+
+            <button className="navbar-toggler border-0 py-0 order-lg-1" type="button" data-toggle="collapse" data-target="#bar" aria-controls="bar" aria-expanded="false" aria-label="burger menu">
+            <span className="navbar-toggler-icon">
+              <FiMenu color='#fff' size='2x'/>
+            </span>
             </button>
 
-            <div className="collapse navbar-collapse">
+            <div className="collapse navbar-collapse" id="bar">
                 <ul className="navbar-nav">
                     <li className="nav-item">
                         <a className="nav-link" href="#">Jerseys</a>

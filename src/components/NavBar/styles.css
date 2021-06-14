@@ -7,11 +7,15 @@ nav {
 }
 
 nav li a {
-    color: #EBEBEB;
+    color:#DFDFDF;
+    transition: 0.4s;
 }
 
 nav li a:hover {
-    color:#EBEBEB;
-    text-shadow:0px 0px 12px #EBEBEB;
+     color:#FFF;
+     text-shadow: 0 0 10px #fff;
+}
 
+#bar {
+    transition: 0.2s;
 }
