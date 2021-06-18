@@ -1,0 +1,11 @@
+#card-counter {
+    background:#F7F7F7;
+    border:none;
+}
+
+#counter {
+    background:white;
+    border: 2px solid #CDCDCD;
+    border-radius:5px;
+    padding: 0.5em 1em;
+}
