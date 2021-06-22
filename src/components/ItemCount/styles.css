@@ -9,3 +9,26 @@
     border-radius:5px;
     padding: 0.5em 1em;
 }
+
+#addToCart, #addToCartNoStock {
+    padding: 0.5em 1em;
+}
+
+#addToCart {
+    background:white;
+    color:#2294C6;
+    border: 2px solid #2294C6;
+}
+
+
+#addToCartNoStock {
+    background:#FCFCFC;
+    color:#C2E7F5;
+    border: 2px solid #C2E7F5;
+    outline:0;
+}
+
+#addToCartNoStock:focus, #addToCartNoStock:active {
+    outline: none;
+    box-shadow: none;
+  }
