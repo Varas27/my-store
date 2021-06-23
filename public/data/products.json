@@ -1,0 +1,50 @@
+[
+    {
+        "id": 1,
+        "title": "Jersey" ,
+        "description": "asd",
+        "price": 800,
+        "pictureUrl": "./img/celticsjersey.jpg",
+        "team": "Celtics"
+    },
+    {
+        "id": 2,
+        "title": "Shorts" ,
+        "description": "asd",
+        "price": 400,
+        "pictureUrl": "./img/hornetsshorts.jpg",
+        "team": "Hornets"
+    },
+    {
+        "id": 3,
+        "title": "Gorra" ,
+        "description": "asd",
+        "price": 200,
+        "pictureUrl": "./img/cavsgorra.jpg",
+        "team": "Cavs"
+    },
+    {
+        "id": 4,
+        "title": "Jersey" ,
+        "description": "asd",
+        "price": 200,
+        "pictureUrl": "./img/cavsjersey.jpg",
+        "team": "Cavs"
+    },
+    {
+        "id": 5,
+        "title": "Shorts" ,
+        "description": "asd",
+        "price": 200,
+        "pictureUrl": "./img/celticsshorts.jpg",
+        "team": "Celtics"
+    },
+    {
+        "id": 6,
+        "title": "Gorra" ,
+        "description": "asd",
+        "price": 200,
+        "pictureUrl": "./img/hornetsgorra.jpg",
+        "team": "Hornets"
+    }
+]

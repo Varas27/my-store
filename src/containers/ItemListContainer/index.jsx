@@ -1,4 +1,6 @@
+import { useState, useEffect } from 'react';
 import { ItemCountComponent } from './../../components/ItemCount/';
+import { ItemListComponent } from './../../components/ItemList/';
 
 export const ItemListContainer = ({greeting}) => {
     const onAdd = (counter) => {
@@ -10,12 +12,24 @@ export const ItemListContainer = ({greeting}) => {
         };
 
         alert(m);
-    }
+    };
+
+    const [products, setProducts] = useState([]);
+
+    useEffect( async () => {
+        const res = await fetch('./data/products.json');
+        const json = await res.json();
+        setProducts(json);       
+    },[])
+
     return (
         <>
+        <section>
             <p>{greeting}</p>
             <ItemCountComponent initial={1} stock={7} onAdd={onAdd}/>
             <ItemCountComponent initial={1} stock={0} onAdd={onAdd}/>  {/* test stock 0*/}
+            <ItemListComponent products={products} />
+        </section>
         </>
     )
 }
