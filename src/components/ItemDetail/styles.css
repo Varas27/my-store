@@ -1,0 +1,12 @@
+.detail-price {
+    font-size: 2em !important;
+    color:#33A68C;
+    font-weight: 600;
+}
+
+.detail-title {
+    font-size:1.3em !important;
+    font-weight: normal;
+    color:#212529;
+    text-transform: uppercase;
+}

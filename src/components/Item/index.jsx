@@ -1,8 +1,8 @@
-import { CardComponent } from "../CardComponent";
+import { Card } from "../Card";
 
-export const ItemComponent = ({product}) => {
+export const Item = ({product}) => {
     return (
-        <CardComponent title={product.title} price={product.price} image={product.pictureUrl} team={product.team}/>
+        <Card title={product.title} price={product.price} image={product.pictureUrl} team={product.team}/>
     )
 }
 

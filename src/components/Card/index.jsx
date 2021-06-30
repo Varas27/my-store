@@ -1,6 +1,6 @@
 import './styles.css';
 
-export const CardComponent = ({title, price, team, image}) => {
+export const Card = ({title, price, team, image}) => {
     return (
         <>
         <div className="card col-5 col-md-3 col-lg-2 p-0 product-card">

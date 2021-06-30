@@ -2,10 +2,11 @@
     {
         "id": 1,
         "title": "Jersey" ,
-        "description": "asd",
+        "description": "Hechas con 190 gramos de poliéster acompañados de la tecnología textil 'ClimaCOOL' para las prendas Adidas y 'Dri-Fit' para las prendas Nike cuya función es mantener el cuerpo libre de la humedad proveniente de la sudoración y del calor.",
         "price": 800,
         "pictureUrl": "./img/celticsjersey.jpg",
-        "team": "Celtics"
+        "team": "Celtics",
+        "stock": 5
     },
     {
         "id": 2,
@@ -13,7 +14,8 @@
         "description": "asd",
         "price": 400,
         "pictureUrl": "./img/hornetsshorts.jpg",
-        "team": "Hornets"
+        "team": "Hornets",
+        "stock": 5
     },
     {
         "id": 3,
@@ -21,7 +23,8 @@
         "description": "asd",
         "price": 200,
         "pictureUrl": "./img/cavsgorra.jpg",
-        "team": "Cavs"
+        "team": "Cavs",
+        "stock": 5
     },
     {
         "id": 4,
@@ -29,7 +32,8 @@
         "description": "asd",
         "price": 200,
         "pictureUrl": "./img/cavsjersey.jpg",
-        "team": "Cavs"
+        "team": "Cavs",
+        "stock": 5
     },
     {
         "id": 5,
@@ -37,7 +41,8 @@
         "description": "asd",
         "price": 200,
         "pictureUrl": "./img/celticsshorts.jpg",
-        "team": "Celtics"
+        "team": "Celtics",
+        "stock": 5
     },
     {
         "id": 6,
@@ -45,6 +50,7 @@
         "description": "asd",
         "price": 200,
         "pictureUrl": "./img/hornetsgorra.jpg",
-        "team": "Hornets"
+        "team": "Hornets",
+        "stock": 5
     }
 ]

@@ -1,13 +1,13 @@
 import './styles.css';
 import { FiMenu } from 'react-icons/fi';
-import { CartWidgetComponent } from './../CartWidget/index';
+import { CartWidget } from './../CartWidget/index';
 
-export const NavBarComponent = () => {
+export const NavBar = () => {
     return (
-        <nav className="navbar navbar-expand-lg">
+        <nav className="navbar navbar-expand-lg mb-5">
             <a className="navbar-brand" href="/#">NeBeA</a>
 
-            <CartWidgetComponent />
+            <CartWidget />
 
             <button className="navbar-toggler border-0 py-0 order-lg-1" type="button" data-toggle="collapse" data-target="#bar" aria-controls="bar" aria-expanded="false" aria-label="burger menu">
             <span className="navbar-toggler-icon">

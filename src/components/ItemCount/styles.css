@@ -1,11 +1,6 @@
-#card-counter {
-    background:#F7F7F7;
-    border:none;
-}
-
 #counter {
     background:white;
-    border: 2px solid #CDCDCD;
+    border: 2px solid #DFDFDF;
     border-radius:5px;
     padding: 0.5em 1em;
 }
@@ -15,17 +10,16 @@
 }
 
 #addToCart {
-    background:white;
-    color:#2294C6;
-    border: 2px solid #2294C6;
+    background:#2294C6;
+    color: white;
+    border:none;
 }
 
 
 #addToCartNoStock {
-    background:#FCFCFC;
-    color:#C2E7F5;
-    border: 2px solid #C2E7F5;
-    outline:0;
+    background:#D9F0F9;
+    color:#FCFCFC;
+    border:none;
 }
 
 #addToCartNoStock:focus, #addToCartNoStock:active {
