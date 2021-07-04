@@ -1,15 +1,15 @@
 import { useState, useEffect } from 'react';
-import { ItemCount } from './../../components/ItemCount/';
 import { ItemList } from './../../components/ItemList/';
-import { onAdd } from './../../utils/const';
+import { useParams } from 'react-router-dom';
 
 export const ItemListContainer = ({greeting}) => {
 
     const [products, setProducts] = useState([]);
+    const {cat} = useParams()
 
     useEffect( () => {
         async function getJSON() {
-            const res = await fetch('./data/products.json');
+            const res = await fetch('/data/products.json');
             const json = await res.json();
         setProducts(json);   
         }
@@ -19,10 +19,22 @@ export const ItemListContainer = ({greeting}) => {
     return (
         <>
         <section>
-            <p>{greeting}</p>
-            <ItemCount initial={1} stock={7} onAdd={onAdd}/>
-            <ItemCount initial={1} stock={0} onAdd={onAdd}/>  {/* test stock 0*/}
+
+            {
+            !cat ? 
+
+            <>
+            <h2 className="text-center mx-3 mb-3">Lista de productos</h2>
             <ItemList products={products} />
+            </>
+
+            :
+
+            <>
+            <h2 className="text-center mx-3 mb-3">Lista de productos por categoría: {cat.charAt(0).toUpperCase() + cat.slice(1)}</h2>
+            <ItemList products={products.filter(product => product.cat === cat)} />
+            </>
+            }
         </section>
         </>
     )

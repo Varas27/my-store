@@ -1,11 +1,12 @@
 import './styles.css';
 import { FiMenu } from 'react-icons/fi';
 import { CartWidget } from './../CartWidget/index';
+import { Link, NavLink } from 'react-router-dom'
 
 export const NavBar = () => {
     return (
         <nav className="navbar navbar-expand-lg mb-5">
-            <a className="navbar-brand" href="/#">NeBeA</a>
+            <h1 className="mb-0 mr-3" style={{fontSize:'2em'}}><Link to={'/'}>NeBeA</Link></h1>
 
             <CartWidget />
 
@@ -16,15 +17,21 @@ export const NavBar = () => {
             </button>
 
             <div className="collapse navbar-collapse" id="bar">
-                <ul className="navbar-nav">
+                <ul className="navbar-nav text-center">
                     <li className="nav-item">
-                        <a className="nav-link" href="/#">Jerseys</a>
+                        <NavLink to={'/categories/jerseys'} activeClassName="active" className="nav-link">
+                            Jerseys
+                        </NavLink>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" href="/#">Shorts</a>
+                        <NavLink to={'/categories/shorts'} activeClassName="active" className="nav-link">
+                            Shorts
+                        </NavLink>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" href="/#">Gorras</a>
+                        <NavLink to={'/categories/gorras'} activeClassName="active" className="nav-link">
+                            Gorras
+                        </NavLink>
                     </li>
                 </ul>
             </div>

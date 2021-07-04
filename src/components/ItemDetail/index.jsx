@@ -1,5 +1,5 @@
 import './styles.css';
-import { ItemCount } from './../ItemCount/index';
+import { ItemCount } from './../ItemCount/';
 import { onAdd } from './../../utils/const';
 
 export const ItemDetail = ({details}) => {
@@ -9,7 +9,7 @@ export const ItemDetail = ({details}) => {
                 <div className="container col-12 col-lg-10 col-xl-9">
                     <div className="row bg-white" style={{borderRadius: "10px"}}>
                         <div className="col-md-6 pl-md-0 pr-md-3 py-4 text-center">
-                            <img className="" src={details.pictureUrl} alt= {`${details.team} ${details.title}`} />
+                            <img className="img-fluid" src={details.pictureUrl} alt= {`${details.team} ${details.title}`} />
                         </div>
                         <div className="col-md-6 pl-md-0 pr-md-3 py-4">
                             <h3 className="detail-title m-0">{`${details.team} ${details.title}`}</h3>

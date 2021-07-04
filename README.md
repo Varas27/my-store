@@ -1,70 +1,16 @@
-# Getting Started with Create React App
+NeBeA. Venta de indumentaria de los equipos de la NBA.
+Proyecto para el curso de React Js de Coderhouse.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Se incluyeron estas dependencias extras:
 
-## Available Scripts
+.react-icons: Incluye una recopilación de muchas librerias de íconos (FontAwesome, Bootstrap, Material Design, entre ellas).
 
-In the project directory, you can run:
+.react-loader-spinner: Sencilla implementación y suficiente variedad de diseños.
 
-### `npm start`
+Se crearon 3 contenedores:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+.HomeContainer: Contiene al ItemListContainer.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+.ItemListContainer: Recibe los productos del json y los pasa como prop a ItemList. ItemList hace un map del array y le pasa un objeto como prop a Item. Item le manda las propiedades del objeto a Card y este las utiliza para realizar las cards de los productos. Si recibe la categoría mediante parámetro por ruta, filtra las cards a mostrar con un filter.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+.ItemDetailContainer: Al clickear en el boton "ver más" de las card, navega hasta ItemDetailContainer y recibe el id del producto mediante parámetro por ruta. Le manda el objeto mediante prop a ItemDetail y después de 2 segundos, lo renderiza. El detalle (Título, descripción, precio y foto) del producto se hacen visibles, también muestra un contador de items (ItemCount).

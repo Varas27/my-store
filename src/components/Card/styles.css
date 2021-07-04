@@ -1,18 +1,38 @@
 .product-card {
     margin:0.7em 0.5em;
-    
+    box-shadow:0px 0px 2px #d7d7d7;
+    border:none !important;
 }
 
 .product-card h3 {
-    font-size:1em;
+    font-size:0.9em;
+    font-weight: 400;
 }
 
 .price {
     font-size: 1em !important;
     color:#33A68C;
-    font-weight: bold;
+    font-weight: 500;
 }
 
 .product-card p{
     font-size:0.8em;
+}
+
+#verMas {
+    background:#2294C6;
+    color:#fff;
+    border-radius:0 0 0.25em 0.25em;
+    font-size:0.9em;
+    width:100%;
+}
+
+#verMas:active {
+    box-shadow: 0px 0px 1px 3px #9DD6EE !important;
+}
+
+#verMas a, #verMas a:hover {
+    color:#fff;
+    text-decoration:none;
+    
 }
