@@ -8,13 +8,14 @@ nav {
 
 nav li a {
     color:#D7D7D7;
-    transition: 0.4s;
+    transition: color 0.4s, text-shadow 0.4s;
 }
 
 nav li a:hover {
      color:#FFF;
      text-shadow: 0 0 5px #fff;
 }
+
 
 #bar {
     transition: 0.2s;
@@ -28,4 +29,29 @@ h1 a, h1 a:hover {
 .active {
     color:#fff;
     text-shadow: 0 0 5px #fff;
+}
+
+@media only screen and (min-width: 991.99px) {
+
+.active::after {
+    content: "";
+    display: block;
+    border-bottom: 2px solid #fff;
+    width: 100%;
+    transition: 0.4s;
+}
+
+
+nav li a::after {
+    content: "";
+    display: block;
+    border-bottom: 2px solid #fff;
+    width: 0;
+    transition: 0.4s ;
+}
+
+nav li a:hover::after {
+    width:100%;
+}
+
 }

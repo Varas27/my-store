@@ -19,7 +19,7 @@ export const ItemCount = ({initial, stock, onAdd}) => {
     }
 
     return(
-        <div style={{padding: "1.3em", background: "#FBFBFB", borderRadius: "10px"}}>
+        <>
             <div className="row mx-0" id="counter">
                 <button className="btn p-0 mr-auto shadow-none" type="button" onClick={decrement}>
                     <HiOutlineMinusCircle size="30" color={counter === initial ? '#C2E7F5' : '#2294C6'}/>
@@ -32,6 +32,6 @@ export const ItemCount = ({initial, stock, onAdd}) => {
             <button className="col-12 btn btn-primary mt-4" type="button" id={stock !== 0 ? 'addToCart' : 'addToCartNoStock'} onClick={stock !== 0 ? () => onAdd(counter) : null}>
                 <p className="m-0">Agregar al carrito</p>
             </button>
-        </div>
+        </>
     )
 }
