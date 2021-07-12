@@ -1,15 +1,18 @@
 import './styles.css';
 import { ItemCount } from './../ItemCount/';
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { CartContext } from './../../context/CartContext/';
 
 export const ItemDetail = ({ details }) => {
-    const [quantity, setQuantity] = useState(null);
+    const {addItem} = useContext(CartContext);
 
-    const onAdd = (counter) => {
-        setQuantity(counter);
+    const [purchase, setPurchase] = useState(null);
+    const onAdd = (item, quantity) => {
+        setPurchase(true)
+        addItem(item, quantity);
     };
-    console.log(quantity);
+
 
     return (
         <>
@@ -32,9 +35,9 @@ export const ItemDetail = ({ details }) => {
                             <p style={{ fontWeight: "300" }}>Stock: {details.stock}</p>
                             <div style={{ padding: "1.3em", background: "#FBFBFB", borderRadius: "10px" }}>
                                 {
-                                !quantity ?
+                                !purchase ?
                                 <>
-                                <ItemCount initial={1} stock={details.stock} onAdd={onAdd} />
+                                <ItemCount initial={1} item={details} stock={details.stock} onAdd={onAdd} />
                                 </>
 
                                 :
