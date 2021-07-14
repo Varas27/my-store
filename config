@@ -1,0 +1,10 @@
+  var firebaseConfig = {
+    apiKey: "AIzaSyBavWlQEQ-tBLRxvT1mvvZKvbEmgFMRSDg",
+    authDomain: "nebea-store.firebaseapp.com",
+    projectId: "nebea-store",
+    storageBucket: "nebea-store.appspot.com",
+    messagingSenderId: "765877869950",
+    appId: "1:765877869950:web:177cee5047078d979fe72f"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);

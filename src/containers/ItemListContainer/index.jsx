@@ -24,14 +24,14 @@ export const ItemListContainer = ({greeting}) => {
             !cat ? 
 
             <>
-            <h2 className="text-center mx-3 mb-3">Lista de productos</h2>
+            <h2 className="text-center mx-3 mb-3">Catálogo de productos</h2>
             <ItemList products={products} />
             </>
 
             :
 
             <>
-            <h2 className="text-center mx-3 mb-3">Lista de productos por categoría: {cat.charAt(0).toUpperCase() + cat.slice(1)}</h2>
+            <h2 className="text-center mx-3 mb-3">Catálogo de productos por categoría: {cat.charAt(0).toUpperCase() + cat.slice(1)}</h2>
             <ItemList products={products.filter(product => product.cat === cat)} />
             </>
             }

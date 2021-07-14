@@ -29,16 +29,21 @@ export const CustomProvider = ({children}) => {
     };
 
     const removeItem = (id) => {
-        let aux = cart.filter(element => element.item.id !== 1);
+        let aux = cart.filter(element => element.item.id !== id);
         setCart(aux);
-    }; //El id del producto será enviado desde el cart una vez lo haya realizado, ahora está el 1 a modo de prueba
+    };
 
     useEffect(() => {
         localStorage.setItem('cart', JSON.stringify(cart));
     },[cart])
 
+    let totalPrice = 0;
+    cart.forEach((element) => {
+        totalPrice += element.quantity * element.item.price;
+    });
+
     return (
-        <Provider value={{ addItem, cart, clear, removeItem }}>
+        <Provider value={{ addItem, cart, clear, removeItem, totalPrice }}>
             {children}
         </Provider>
     )

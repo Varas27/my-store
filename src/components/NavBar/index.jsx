@@ -6,20 +6,17 @@ import { useContext } from 'react';
 import { CartContext } from './../../context/CartContext/';
 
 export const NavBar = () => {
-    const {cart, clear, removeItem} = useContext(CartContext)
+    const {cart} = useContext(CartContext)
     return (
         <nav className="navbar navbar-expand-lg mb-5">
             <h1 className="mb-0 mr-3" style={{ fontSize: '2em' }}><Link to={'/'}>NeBeA</Link></h1>
 
-            <CartWidget quantity={cart.length}/>
-
             {
-            cart.length ?
-            <button className="btn btn-primary order-lg-1" onClick={clear}>Vaciar carrito</button>
-            :
+            cart.length ? 
+            <CartWidget quantity={cart.length}/>
+            :            
             null
-            } {/*test*/}
-            <button className="btn btn-primary order-lg-1" onClick={ removeItem }>Remover producto numero 1</button> {/*test*/}
+            }
 
             <button className="navbar-toggler border-0 py-0 order-lg-1 collapsed" type="button" data-toggle="collapse" data-target="#bar" aria-controls="bar" aria-expanded="false" aria-label="burger menu">
                 <span className="navbar-toggler-icon">
