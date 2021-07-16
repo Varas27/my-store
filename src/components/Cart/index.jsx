@@ -49,7 +49,7 @@ export const Cart = () => {
                                                                 <Link to={`/product/${product.item.id}`} className="d-none d-sm-block col-3 col-sm-3 col-lg-2">
                                                                     <img src={product.item.pictureUrl} alt={`${product.item.team} ${product.item.title}`} className="img-fluid" />
                                                                 </Link>
-                                                                <Link to={`/product/${product.item.id}`} className="col ml-3 p-0 text-left">
+                                                                <Link to={`/product/${product.item.id}`} className="col ml-2 p-0 text-left">
                                                                     <h3 className="mb-0">
                                                                         {`${product.item.team} ${product.item.title}`}
                                                                     </h3>
@@ -65,7 +65,7 @@ export const Cart = () => {
                                             }
                                         </tbody>
                                     </table>
-                                    <div className="row justify-content-between" style={{ width: '100%' }}>
+                                    <div className="mx-auto row justify-content-between" style={{ width: '100%' }}>
                                         <div>
                                             <button className="d-flex btn empty-cart mb-3 mb-sm-0 p-0" onClick={clear}>
                                                 <RiArrowLeftSLine className="align-self-center" /> VACIAR CARRITO
