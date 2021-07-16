@@ -1,29 +1,32 @@
 import React, { useState, createContext, useEffect } from 'react';
-import isEqual from 'lodash/isEqual';
 
 export const CartContext = createContext([]);
 
-const {Provider} = CartContext;
+const { Provider } = CartContext;
 
-export const CustomProvider = ({children}) => {
+export const CustomProvider = ({ children }) => {
 
     const [cart, setCart] = useState(() => {
         const localData = localStorage.getItem('cart');
-        return( localData ? JSON.parse(localData) : [] )
+        return (localData ? JSON.parse(localData) : [])
     });
 
+    let [totalPrice, setTotalPrice] = useState(0)
+
     const addItem = (item, quantity) => {
-        let aux = cart.map(element => element.item.id === item.id ? {...element, quantity: quantity + element.quantity} : element);
-        if (isEqual(cart, aux)) {
-            aux.push({item, quantity});
+        let repeatedIndex = cart.findIndex(element => element.item.id === item.id);
+
+        if (repeatedIndex !== -1) {
+            let aux = cart;
+            aux[repeatedIndex] = { item, quantity: quantity }
             setCart(aux);
         } else {
-            setCart(aux);
+            setCart([...cart, { item, quantity }]);
         }
-    };
-    console.log(cart);
+        getTotalPrice();
+    }
 
-    
+
     const clear = () => {
         setCart([]);
     };
@@ -33,14 +36,20 @@ export const CustomProvider = ({children}) => {
         setCart(aux);
     };
 
+    const getTotalPrice = () => {
+        let total = cart.reduce((accumulatedTotal, cartItem) => {
+            return  + accumulatedTotal + cartItem.item.price * cartItem.quantity;
+        }, 0);
+        setTotalPrice(total);
+    }
+
     useEffect(() => {
         localStorage.setItem('cart', JSON.stringify(cart));
-    },[cart])
+        getTotalPrice();
+    })
 
-    let totalPrice = 0;
-    cart.forEach((element) => {
-        totalPrice += element.quantity * element.item.price;
-    });
+    console.log(cart);
+
 
     return (
         <Provider value={{ addItem, cart, clear, removeItem, totalPrice }}>

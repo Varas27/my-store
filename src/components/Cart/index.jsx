@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { HiOutlineShoppingBag } from 'react-icons/hi';
 import { CgSmileSad } from 'react-icons/cg';
 import { RiArrowRightSLine } from 'react-icons/ri';
+import { RiArrowLeftSLine } from 'react-icons/ri';
 
 export const Cart = () => {
     const { cart, clear, removeItem, totalPrice } = useContext(CartContext);
@@ -19,7 +20,7 @@ export const Cart = () => {
                             <>
                                 <div className="mx-auto">
                                     <HiOutlineShoppingBag color='#B0B0B0' style={{ position: 'relative' }} size='300' />
-                                    <CgSmileSad className="onTop" color='#B0B0B0' style={{ position: 'absolute', top: 'calc(35% - 50px)', right: 'calc(50% - 50px)' }} size='100' />
+                                    <CgSmileSad className="onTop" color='#B0B0B0' style={{ position: 'absolute', top: '18.7em', right: 'calc(50% - 50px)' }} size='100' />
                                     <p className="text-center mb-4" style={{ color: '#B0B0B0', fontSize: '2em', fontWeight: '600' }}>Tu carrito está vacío</p>
                                     <Link to='/'>
                                         <button className="col-12 btn btn-primary mb-3" id="addToCart">Ir al catálogo</button>
@@ -64,15 +65,22 @@ export const Cart = () => {
                                             }
                                         </tbody>
                                     </table>
-
-                                        <button className="btn empty-cart col-12 col-sm-3 mb-3 mb-sm-0" onClick={clear}>VACIAR CARRITO</button>
-                                        <Link to='/' className="d-flex col-12 col-sm-5 justify-content-center justify-content-sm-end ml-auto p-0" style={{ color: '#7F7F7F', fontSize: '0.8em' }}>
-                                            <p className="mb-0 align-self-center">CONTINUAR COMPRANDO</p><RiArrowRightSLine className="align-self-center" />
-                                        </Link>
+                                    <div className="row justify-content-between" style={{ width: '100%' }}>
+                                        <div>
+                                            <button className="d-flex btn empty-cart mb-3 mb-sm-0 p-0" onClick={clear}>
+                                                <RiArrowLeftSLine className="align-self-center" /> VACIAR CARRITO
+                                            </button>
+                                        </div>
+                                        <div>
+                                            <Link to='/' className="d-flex p-0" style={{ color: '#7F7F7F', fontSize: '0.75em' }}>
+                                                <p className="mb-0 align-self-center">CONTINUAR COMPRANDO</p><RiArrowRightSLine className="align-self-center" />
+                                            </Link>
+                                        </div>
+                                    </div>
 
                                 </div>
                                 <div className="col-11 col-md summary p-3 mx-auto mb-4">
-                                    <p class="summary-title mb-0">RESUMEN DE COMPRA</p>
+                                    <p className="summary-title mb-0">RESUMEN DE COMPRA</p>
                                     <hr className="my-2" style={{ borderColor: "#D8D8D8" }} />
                                     <div className="total-summary d-flex">
                                         <p className="mb-0">TOTAL</p>

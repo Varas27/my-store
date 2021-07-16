@@ -8,7 +8,7 @@ import { CartContext } from './../../context/CartContext/';
 export const NavBar = () => {
     const {cart} = useContext(CartContext)
     return (
-        <nav className="navbar navbar-expand-lg mb-5">
+        <nav className="navbar navbar-expand-lg mb-5 mx-auto">
             <h1 className="mb-0 mr-3" style={{ fontSize: '2em' }}><Link to={'/'}>NeBeA</Link></h1>
 
             {
@@ -18,7 +18,7 @@ export const NavBar = () => {
             null
             }
 
-            <button className="navbar-toggler border-0 py-0 order-lg-1 collapsed" type="button" data-toggle="collapse" data-target="#bar" aria-controls="bar" aria-expanded="false" aria-label="burger menu">
+            <button className="navbar-toggler border-0 ml-4 p-0 order-lg-1 collapsed" type="button" data-toggle="collapse" data-target="#bar" aria-controls="bar" aria-expanded="false" aria-label="burger menu">
                 <span className="navbar-toggler-icon">
                     <FiMenu color='#fff' size='30' />
                 </span>

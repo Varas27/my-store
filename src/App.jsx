@@ -11,7 +11,9 @@ function App() {
   return (
     <CustomProvider>
       <BrowserRouter>
-        <NavBar />
+        <header>
+          <NavBar />
+        </header>
         <Switch>
           <Route exact path="/" component={HomeContainer} />
           <Route exact path="/categories/:cat" component={ItemListContainer} />

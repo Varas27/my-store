@@ -1,5 +1,5 @@
 nav {
-    background-image:linear-gradient(#2299CC, #1D759C);
+    max-width: 1200px;
 }
 
 .navbar-brand, .navbar-brand:hover{
