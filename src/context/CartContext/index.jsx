@@ -1,10 +1,14 @@
 import React, { useState, createContext, useEffect } from 'react';
+import { getFirestore } from '../../firebase/client';
 
 export const CartContext = createContext([]);
 
 const { Provider } = CartContext;
 
 export const CustomProvider = ({ children }) => {
+
+    const [listProducts, setListProducts] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     const [cart, setCart] = useState(() => {
         const localData = localStorage.getItem('cart');
@@ -26,7 +30,6 @@ export const CustomProvider = ({ children }) => {
         getTotalPrice();
     }
 
-
     const clear = () => {
         setCart([]);
     };
@@ -45,14 +48,23 @@ export const CustomProvider = ({ children }) => {
 
     useEffect(() => {
         localStorage.setItem('cart', JSON.stringify(cart));
+
         getTotalPrice();
-    })
 
-    console.log(cart);
-
+        const DB = getFirestore();
+        const COLLECTION = DB.collection('productos');
+        async function getData(){
+            const RESPONSE = await COLLECTION.get()
+            setListProducts(RESPONSE.docs.map(element => element.data()))
+            setTimeout(() => {
+                setLoading(false)
+            })
+        }
+        getData();
+    });
 
     return (
-        <Provider value={{ addItem, cart, clear, removeItem, totalPrice }}>
+        <Provider value={{ addItem, cart, clear, removeItem, totalPrice, listProducts, loading }}>
             {children}
         </Provider>
     )
