@@ -20,7 +20,7 @@ export const Cart = () => {
                             <>
                                 <div className="mx-auto">
                                     <HiOutlineShoppingBag color='#B0B0B0' style={{ position: 'relative' }} size='300' />
-                                    <CgSmileSad className="onTop" color='#B0B0B0' style={{ position: 'absolute', top: '18.7em', right: 'calc(50% - 50px)' }} size='100' />
+                                    <CgSmileSad className="onTop" color='#B0B0B0' style={{ position: 'absolute', top: '18.7em', right: 'calc(50% - 43px)' }} size='100' />
                                     <p className="text-center mb-4" style={{ color: '#B0B0B0', fontSize: '2em', fontWeight: '600' }}>Tu carrito está vacío</p>
                                     <Link to='/'>
                                         <button className="col-12 btn btn-primary mb-3" id="addToCart">Ir al catálogo</button>
@@ -42,14 +42,14 @@ export const Cart = () => {
                                         <tbody>
                                             {cart.map(product => {
                                                 return (
-                                                    <tr className="py-3" key={product.item.id}>
+                                                    <tr className="py-3" key={product.item.idDB}>
                                                         <td data-th="Producto">
                                                             <div className="row cart-product-details align-items-center">
-                                                                <button className="btn ml-2 p-1" onClick={() => { removeItem(product.item.id) }} style={{ color: '#B0B0B0' }} title='Eliminar'>x</button>
-                                                                <Link to={`/product/${product.item.id}`} className="d-none d-sm-block col-3 col-sm-3 col-lg-2">
+                                                                <button className="btn ml-2 p-1" onClick={() => { removeItem(product.item.idDB) }} style={{ color: '#B0B0B0' }} title='Eliminar'>x</button>
+                                                                <Link to={`/product/${product.item.idDB}`} className="d-none d-sm-block col-3 col-sm-3 col-lg-2">
                                                                     <img src={product.item.pictureUrl} alt={`${product.item.team} ${product.item.title}`} className="img-fluid" />
                                                                 </Link>
-                                                                <Link to={`/product/${product.item.id}`} className="col ml-2 p-0 text-left">
+                                                                <Link to={`/product/${product.item.idDB}`} className="col ml-2 p-0 text-left">
                                                                     <h3 className="mb-0">
                                                                         {`${product.item.team} ${product.item.title}`}
                                                                     </h3>
@@ -86,6 +86,9 @@ export const Cart = () => {
                                         <p className="mb-0">TOTAL</p>
                                         <p className="ml-auto mb-0">${totalPrice}</p>
                                     </div>
+                                    <Link to='/checkout'>
+                                    <button type="button" className="mt-3 checkoutBtn border-0 less btn btn-primary">INICIAR PAGO</button>
+                                    </Link>
                                 </div>
                             </>
                     }

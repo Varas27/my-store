@@ -6,7 +6,7 @@ export const ItemList = ({products}) => {
             <div className="row col-md-11 mx-auto justify-content-around">
             {products.map(product => {
                 return (
-                    <Item product={product} key={product.id}/>
+                    <Item product={product} key={product.idDB}/>
                 )
             })
             }

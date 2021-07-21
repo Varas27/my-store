@@ -1,5 +1,7 @@
-import React, { useState, createContext, useEffect } from 'react';
+import React, { useState, createContext, useEffect, useCallback } from 'react';
 import { getFirestore } from '../../firebase/client';
+import firebase from 'firebase/app';
+import '@firebase/firestore';
 
 export const CartContext = createContext([]);
 
@@ -7,18 +9,15 @@ const { Provider } = CartContext;
 
 export const CustomProvider = ({ children }) => {
 
-    const [listProducts, setListProducts] = useState([]);
-    const [loading, setLoading] = useState(true);
-
     const [cart, setCart] = useState(() => {
         const localData = localStorage.getItem('cart');
         return (localData ? JSON.parse(localData) : [])
     });
 
-    let [totalPrice, setTotalPrice] = useState(0)
+    let [totalPrice, setTotalPrice] = useState(0);
 
     const addItem = (item, quantity) => {
-        let repeatedIndex = cart.findIndex(element => element.item.id === item.id);
+        let repeatedIndex = cart.findIndex(element => element.item.idDB === item.idDB);
 
         if (repeatedIndex !== -1) {
             let aux = cart;
@@ -35,36 +34,44 @@ export const CustomProvider = ({ children }) => {
     };
 
     const removeItem = (id) => {
-        let aux = cart.filter(element => element.item.id !== id);
+        let aux = cart.filter(element => element.item.idDB !== id);
         setCart(aux);
     };
 
-    const getTotalPrice = () => {
+    const getTotalPrice = useCallback(() => {
         let total = cart.reduce((accumulatedTotal, cartItem) => {
-            return  + accumulatedTotal + cartItem.item.price * cartItem.quantity;
+            return + accumulatedTotal + cartItem.item.price * cartItem.quantity;
         }, 0);
         setTotalPrice(total);
+    }, [cart])
+
+    const createOrder = (name, surname, email, phone, dni) => {
+        const buyer = { name: name, surname: surname, email: email, phone: phone, dni: dni };
+        const order = { buyer: buyer, items: cart, total: totalPrice, date: firebase.firestore.Timestamp.fromDate(new Date()) };
+        const DB = getFirestore();
+        DB.collection('orders').add(order).then(({ id }) => {
+            const batch = DB.batch();
+            const itemsRef = DB.collection('productos');
+            cart.forEach((element) => {
+                batch.update(itemsRef.doc(element.item.idDB), { stock: element.item.stock - element.quantity })
+            })
+            batch.commit().then(() => {
+                clear();
+            })
+        })
     }
+
 
     useEffect(() => {
         localStorage.setItem('cart', JSON.stringify(cart));
-
         getTotalPrice();
+    }, [cart, getTotalPrice]);
 
-        const DB = getFirestore();
-        const COLLECTION = DB.collection('productos');
-        async function getData(){
-            const RESPONSE = await COLLECTION.get()
-            setListProducts(RESPONSE.docs.map(element => element.data()))
-            setTimeout(() => {
-                setLoading(false)
-            })
-        }
-        getData();
-    });
+    console.log(cart);
+
 
     return (
-        <Provider value={{ addItem, cart, clear, removeItem, totalPrice, listProducts, loading }}>
+        <Provider value={{ addItem, cart, clear, removeItem, totalPrice, createOrder }}>
             {children}
         </Provider>
     )

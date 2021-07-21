@@ -7,12 +7,11 @@ import { CartContext } from './../../context/CartContext/';
 export const ItemDetail = ({ details }) => {
     const {addItem} = useContext(CartContext);
 
-    const [purchase, setPurchase] = useState(null);
+    const [purchase, setPurchase] = useState(false);
     const onAdd = (item, quantity) => {
-        setPurchase(true)
         addItem(item, quantity);
+        setPurchase(true);
     };
-
 
     return (
         <>

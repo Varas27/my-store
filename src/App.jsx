@@ -6,6 +6,7 @@ import { ItemDetailContainer } from './containers/ItemDetailContainer/';
 import { ItemListContainer } from './containers/ItemListContainer/';
 import { CustomProvider } from './context/CartContext/';
 import { Cart } from './components/Cart/';
+import { Checkout } from './components/Checkout';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route exact path="/categories/:cat" component={ItemListContainer} />
           <Route exact path="/product/:id" component={ItemDetailContainer} />
           <Route exact path="/cart" component={Cart} />
+          <Route exact path="/checkout" component={Checkout} />
           <Route exact path="*" component={() => <h1 className="text-center">404 page not found</h1>} />
         </Switch>
       </BrowserRouter>

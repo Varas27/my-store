@@ -1,13 +1,28 @@
-import { useContext } from 'react';
+import { useState, useEffect } from 'react';
 import { ItemList } from './../../components/ItemList/';
 import { useParams } from 'react-router-dom';
-import { CartContext } from '../../context/CartContext';
 import Loader from "react-loader-spinner";
+import { getFirestore } from '../../firebase/client';
+
 
 
 export const ItemListContainer = () => {
-    const {listProducts, loading} = useContext(CartContext);
     const {cat} = useParams();
+
+    const [listProducts, setListProducts] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const DB = getFirestore();
+        const COLLECTION = DB.collection('productos');
+        COLLECTION.get().then((querySnapshot) => {
+            let snapshot = querySnapshot.docs.map(doc => {
+                return { ...doc.data(), idDB: doc.id }
+            });
+            setListProducts(snapshot);
+            setLoading(false)
+        })
+    }, []);
 
     return (
         <>

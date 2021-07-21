@@ -1,7 +1,7 @@
 import './styles.css';
 import { Link } from 'react-router-dom';
 
-export const Card = ({title, price, team, image, id}) => {
+export const Card = ({title, price, team, image, idDB}) => {
     return (
         <>
         <div className="card col-5 col-md-3 col-lg-2 p-0 product-card ">
@@ -11,7 +11,7 @@ export const Card = ({title, price, team, image, id}) => {
                 <p className="card-text price">${price}</p>
                 
             </div>
-            <Link to={`/product/${id}`}>
+            <Link to={`/product/${idDB}`}>
                 <button type="button" className="btn py-2" id="verMas">
                     Ver más
                 </button>
