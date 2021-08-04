@@ -35,12 +35,12 @@ export const Checkout = () => {
     }
 
     useEffect(() => {
-        if (name && surname && email && dni && /^(?:(?:00)?549?)?0?(?:11|[2368]\d)(?:(?=\d{0,2}15)\d{2})??\d{8}$/.test(phone)) {
+        if (name && surname && email && dni && /^(?:(?:00)?549?)?0?(?:11|[2368]\d)(?:(?=\d{0,2}15)\d{2})??\d{8}$/.test(phone) && phone.length === 10) {
             setEnabled(true);
         } else {
             setEnabled(false);
         }
-
+        console.log(phone.length)
         if (purchaseComplete) {
             $("#form-checkout")[0].reset();
             setPurchaseComplete(false);
@@ -72,7 +72,7 @@ export const Checkout = () => {
                                     <div>
                                         <p className="mb-0">{!enabled ? 'Completar los siguientes casilleros:' : 'Casilleros completados!'}</p>
                                         <ul className="mb-0 pl-1">
-                                            {[!name ? <li key="name">Nombre</li> : null, !surname ? <li key="surname">Apellido</li> : null, !email ? <li key="email">Email</li> : null, !phone ? <li key="phone">Teléfono</li> : null, !dni ? <li key="dni">DNI</li> : null]}
+                                            {[!name ? <li key="name">Nombre</li> : null, !surname ? <li key="surname">Apellido</li> : null, !email ? <li key="email">Email</li> : null, !(phone.length === 10) ? <li key="phone">Teléfono</li> : null, !dni ? <li key="dni">DNI</li> : null]}
                                         </ul>
                                     </div>
                                 </div>
@@ -100,7 +100,7 @@ export const Checkout = () => {
                             </div>
                             <div className="form-group">
                                 <label htmlFor='phone'>Teléfono</label>
-                                <input type="number" className="form-control" id="phone" required onInput={(e) => { setPhone(e.target.value) }} />
+                                <input type="number" placeholder="Debe empezar con '11'" className="form-control" id="phone" required onInput={(e) => { setPhone(e.target.value) }} />
                             </div>
                             <div className="form-group">
                                 <label htmlFor='dni'>DNI</label>
