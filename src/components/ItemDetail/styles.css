@@ -10,3 +10,13 @@
     color:#212529;
     text-transform: uppercase;
 }
+
+.breadcrumbs, .breadcrumbs a {
+    color:#9C9B9A;
+    font-size: 0.9rem;
+    text-transform: capitalize;
+}
+
+.breadcrumbs a:hover {
+    color:#9C9B9A;
+}

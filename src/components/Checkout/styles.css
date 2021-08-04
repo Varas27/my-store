@@ -2,6 +2,125 @@ label {
     font-size:.9em;
 }
 
-input {
-    font-size:.9em !important;
+div .checkoutBtnNoStock {
+    background:#FFE6E6;
+    color:#FCFCFC;
+    border:none;
+    width:100%;
+}
+
+div .checkoutBtnNoStock:hover {
+    color:#FCFCFC;    
+}
+
+#form-checkout {
+    width: 100%;
+}
+
+form .form-control {
+    font-size:.9em; 
+}
+
+form .form-control:focus {
+    border-color: #66BEE3 ;
+    box-shadow: 0 0 2px 3px rgba(32, 139, 186, 0.20);
+}
+
+
+.error-box {
+    background:white;
+    box-shadow: 0 0 4px 1px #E6E6E6;
+    color:#3E454D;
+    font-size:0.9rem;
+    border-radius:10px;
+    transition: height 2s;
+}
+
+.height-animation {
+    animation: show 1s;
+  }
+  
+  @keyframes show {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+  }
+
+.error-box p{
+    color:#30363D;
+    font-weight:500;
+    font-size:1rem;
+}
+
+.error-icon-box {
+    background:#FFCECE;
+    border-radius:10px 10px 0 0;
+}
+
+.success-icon-box {
+    background:#9BE47C;
+    border-radius:10px 10px 0 0;
+}
+
+.error-box ul{
+    list-style: none;
+}
+
+.error-box ul li::before{
+    content: "\2022";
+    color: #FFCECE;
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+}
+
+.modal-background{
+    width: 100vw;
+    height:100vh;
+    z-index: 1;
+    background-color: rgba(0,0,0,.7);
+    position:fixed;
+    top:0;
+    margin:0 !important;
+}
+
+.modal-checkout {
+    background-color:#fff;
+    border-radius:10px;
+    padding:1.5em;
+}
+
+.modal-checkout p {
+    color:#09AE85;
+    font-size:1.3rem;
+    font-weight: 400;
+}
+
+.modal-checkout div p{
+    color:#4F4F4F;
+    font-weight: 300;
+    font-size:1.1rem;
+}
+
+.copyBox {
+    border:1px solid #D1D1D1;
+    border-radius:0.3rem;
+}
+
+.copyIcon {
+    background-color:#2294C6 !important;
+}
+
+.copyIcon:active {
+    box-shadow: 0px 0px 1px 3px #9DD6EE !important;
+}
+
+@media only screen and (min-width: 767.99px) {
+.error-icon-box, .success-icon-box {
+    border-radius: 10px 0 0 10px;
+}
+
+#form-checkout {
+    width: 75%;
+}
+
 }

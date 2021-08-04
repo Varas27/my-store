@@ -23,7 +23,7 @@ export const Cart = () => {
                                     <CgSmileSad className="onTop" color='#B0B0B0' style={{ position: 'absolute', top: '18.7em', right: 'calc(50% - 43px)' }} size='100' />
                                     <p className="text-center mb-4" style={{ color: '#B0B0B0', fontSize: '2em', fontWeight: '600' }}>Tu carrito está vacío</p>
                                     <Link to='/'>
-                                        <button className="col-12 btn btn-primary mb-3" id="addToCart">Ir al catálogo</button>
+                                        <button className="col-12 btn mb-3" id="addToCart">Ir al catálogo</button>
                                     </Link>
                                 </div>
                             </>

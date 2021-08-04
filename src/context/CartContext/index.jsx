@@ -14,6 +14,9 @@ export const CustomProvider = ({ children }) => {
         return (localData ? JSON.parse(localData) : [])
     });
 
+    const [purchaseComplete, setPurchaseComplete] = useState(false);
+    const [purchaseId, setPurchaseId] = useState('');
+
     let [totalPrice, setTotalPrice] = useState(0);
 
     const addItem = (item, quantity) => {
@@ -49,7 +52,9 @@ export const CustomProvider = ({ children }) => {
         const buyer = { name: name, surname: surname, email: email, phone: phone, dni: dni };
         const order = { buyer: buyer, items: cart, total: totalPrice, date: firebase.firestore.Timestamp.fromDate(new Date()) };
         const DB = getFirestore();
-        DB.collection('orders').add(order).then(({ id }) => {
+        const ORDERS = DB.collection('orders');
+        ORDERS.add(order).then(({ id }) => {
+            setPurchaseId(id);
             const batch = DB.batch();
             const itemsRef = DB.collection('productos');
             cart.forEach((element) => {
@@ -57,21 +62,18 @@ export const CustomProvider = ({ children }) => {
             })
             batch.commit().then(() => {
                 clear();
+                setPurchaseComplete(true);
             })
         })
     }
-
 
     useEffect(() => {
         localStorage.setItem('cart', JSON.stringify(cart));
         getTotalPrice();
     }, [cart, getTotalPrice]);
 
-    console.log(cart);
-
-
     return (
-        <Provider value={{ addItem, cart, clear, removeItem, totalPrice, createOrder }}>
+        <Provider value={{ addItem, cart, clear, removeItem, totalPrice, createOrder, purchaseComplete, setPurchaseComplete, purchaseId }}>
             {children}
         </Provider>
     )
