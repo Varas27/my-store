@@ -40,7 +40,7 @@ export const Checkout = () => {
         } else {
             setEnabled(false);
         }
-        console.log(phone.length)
+
         if (purchaseComplete) {
             $("#form-checkout")[0].reset();
             setPurchaseComplete(false);
