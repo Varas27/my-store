@@ -72,7 +72,7 @@ export const Checkout = () => {
                                     <div>
                                         <p className="mb-0">{!enabled ? 'Completar los siguientes casilleros:' : 'Casilleros completados!'}</p>
                                         <ul className="mb-0 pl-1">
-                                            {[!name ? <li key="name">Nombre</li> : null, !surname ? <li key="surname">Apellido</li> : null, !email ? <li key="email">Email</li> : null, !(phone.length === 10) ? <li key="phone">Teléfono</li> : null, !dni ? <li key="dni">DNI</li> : null]}
+                                            {[!name ? <li key="name">Nombre</li> : null, !surname ? <li key="surname">Apellido</li> : null, !email ? <li key="email">Email</li> : null, !(phone.length === 10 && /^(?:(?:00)?549?)?0?(?:11|[2368]\d)(?:(?=\d{0,2}15)\d{2})??\d{8}$/.test(phone)) ? <li key="phone">Teléfono</li> : null, !dni ? <li key="dni">DNI</li> : null]}
                                         </ul>
                                     </div>
                                 </div>
