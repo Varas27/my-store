@@ -24,7 +24,6 @@ export const ItemDetailContainer = () => {
         getItem(id);
     }, [id]);
 
-
     return (
         <>
 
@@ -40,7 +39,7 @@ export const ItemDetailContainer = () => {
 
                     :
 
-                    singleProduct === undefined ?
+                    singleProduct.title === undefined ?
 
                         <div className="alert alert-warning mx-3 text-center" role="alert">
                             Producto no encontrado. <Link to={'/'}>Volver al catálogo</Link>.
