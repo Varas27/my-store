@@ -14,3 +14,5 @@ NeBeA. Venta de indumentaria de los equipos de la NBA. Proyecto para el curso de
 * Se utilizó la base de datos de Firebase para los productos y las órdenes de compra.
 * No hay posibilidad de que el usuario realice una compra incorrecta o indebida (por ejemplo, si navegase directamente al /checkout sin agregar items al carrito)
 ***
+### Deployment
+[Sitio alojado en Vercel](https://my-store-varas27.vercel.app/)
